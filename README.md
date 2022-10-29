@@ -23,10 +23,10 @@
 
 ### Module 4: Kubernetes networking
 
-- [Theory]()
-- [Practice]()
+- [Theory](4-k8s-networking/materials/README.md)
+- [Practice](4-k8s-networking/task/README.md)
 
 ### Module 5: Stateful applications
 
-- [Theory]()
-- [Practice]()
+- [Theory](5-statefull-applications/materials/README.md)
+- [Practice](5-statefull-applications/materials/README.md)
