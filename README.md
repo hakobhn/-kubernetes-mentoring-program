@@ -2,7 +2,23 @@
 
 ## Links
 
-- [Learn](https://learn.epam.com/)
+- [Learn](https://learn.epam.com)
+- [Documentation](https://kubernetes.io/docs/home)
+
+## Lectures
+
+- [Kubernetes Essential Training](https://www.linkedin.com/learning/kubernetes-essential-training-application-development)
+- [Learning Kubernetes](https://www.linkedin.com/learning/learning-kubernetes)
+- [Kubernetes from Zero to Hero](https://www.youtube.com/watch?v=X48VuDVv0do)
+- [Kubernetes Mastery](https://www.udemy.com/course/kubernetesmastery)
+- [Running Kubernetes on AWS(EKS)](https://www.linkedin.com/learning/running-kubernetes-on-aws-eks)
+
+## Books
+
+- [Kubernetes in action](https://www.manning.com/books/kubernetes-in-action)
+- [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Nigel-Poulton/dp/1521823634)
+- [Kubernetes for Developers](https://www.amazon.com/Kubernetes-Developers-William-Denniss/dp/1617297178)
+- [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.amazon.com/Certified-Kubernetes-Application-Developer-Depth/dp/1492083739)
 
 ## Modules
 
@@ -21,12 +37,12 @@
 - [Theory](3-deployment-and-configuration/materials/README.md)
 - [Practice](3-deployment-and-configuration/task/README.md)
 
-### Module 4: Kubernetes networking
+### Module 4: Stateful applications
 
-- [Theory](4-k8s-networking/materials/README.md)
-- [Practice](4-k8s-networking/task/README.md)
+- [Theory](4-statefull-applications/materials/README.md)
+- [Practice](4-statefull-applications/materials/README.md)
 
-### Module 5: Stateful applications
+### Module 5: Kubernetes networking
 
-- [Theory](5-statefull-applications/materials/README.md)
-- [Practice](5-statefull-applications/materials/README.md)
+- [Theory](5-k8s-networking/materials/README.md)
+- [Practice](5-k8s-networking/task/README.md)
