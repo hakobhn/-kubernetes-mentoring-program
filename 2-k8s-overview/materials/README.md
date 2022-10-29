@@ -29,7 +29,7 @@ By design, a container is immutable: you cannot change the code of a container t
 
 ### Container images
 
-A container image represents binary data that encapsulates an application and all its software dependencies. Container images are executable software bundles that can run standalone and that make very well defined assumptions about their runtime environment.
+A container image represents binary data that encapsulates an application and all its software dependencies. Container images are executable software bundles that can run standalone and that make very-well defined assumptions about their runtime environment.
 
 You typically create a container image of your application and push it to a registry before referring to it in a Pod.
 Container images are usually given a name such as pause, example/mycontainer, or kube-apiserver. Images can also include a registry hostname; for example: fictional.registry.example/imagename, and possibly a port number as well; for example: fictional.registry.example:10443/imagename.
@@ -92,7 +92,7 @@ This leads to a problem: if some set of Pods (call them "backends") provides fun
 
 Enter Services.
 
-A Service in Kubernetes is a REST object, similar to a Pod. Like all of the REST objects, you can POST a Service definition to the API server to create a new instance. The name of a Service object must be a valid RFC 1035 label name.
+A Service in Kubernetes is a REST object, similar to a Pod. Like all the REST objects, you can POST a Service definition to the API server to create a new instance. The name of a Service object must be a valid RFC 1035 label name.
 
 For example, suppose you have a set of Pods where each listens on TCP port 9376 and contains a label app.kubernetes.io/name=MyApp:
 ![](images/service-example.png)
@@ -111,7 +111,7 @@ In this example:
 - A Deployment named nginx-deployment is created, indicated by the .metadata.name field.
 - The Deployment creates three replicated Pods, indicated by the .spec.replicas field.
 - The .spec.selector field defines how the Deployment finds which Pods to manage. In this case, you select a label that is defined in the Pod template (app: nginx). However, more sophisticated selection rules are possible, as long as the Pod template itself satisfies the rule.
-- The template field contains the following sub-fields:
+- The template field contains the following subfields:
   - The Pods are labeled `app: nginx` using the `.metadata.labels` field.
   - The Pod template's specification, or `.template.spec` field, indicates that the Pods run one container, `nginx`, which runs the `nginx` Docker Hub image at version 1.14.2.
   - Create one container and name it `nginx` using the `.spec.template.spec.containers[0].name` field.

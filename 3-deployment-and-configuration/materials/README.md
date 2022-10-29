@@ -11,14 +11,14 @@
 
 A health check is a special REST API implementation that you can use to validate the status of a microservice and its dependencies. With MicroProfile Health, microservices can self-check their health and publish their overall status to a defined endpoint.
 
-A health check can assess anything that a microservice needs, including dependencies, system properties, database connections, endpoint connections, and resource availability. The overall status of the microservice depends on whether all the configured health checks pass. A microservice is considered available and reports an UP status if all the configured health checks are successful. If one or more health checks fail, the microservice is considered unavailable and reports a DOWN status. Services can report their availability to a defined endpoint by implementing the API that is provided by MicroProfile Health. A service orchestrator can use these status reports to decide how to manage and scale the microservices within an application. Health checks can also interact with Kubernetes liveness and readiness probes.
+A health check can assess anything that a microservice needs, including dependencies, system properties, database connections, endpoint connections, and resource availability. The overall status of the microservice depends on whether all the configured health checks pass. A microservice is considered available and reports UP status if all the configured health checks are successful. If one or more health checks fail, the microservice is considered unavailable and reports a DOWN status. Services can report their availability to a defined endpoint by implementing the API that is provided by MicroProfile Health. A service orchestrator can use these status reports to decide how to manage and scale the microservices within an application. Health checks can also interact with Kubernetes liveness and readiness probes.
 
 Forces:
 - An alert should be generated when a service instance fails
 - Requests should be routed to working service instances
 
 Solution:
-A service has an health check API endpoint (e.g. HTTP /health) that returns the health of the service. The API endpoint handler performs various checks, such as
+A service has health check API endpoint (e.g. HTTP /health) that returns the health of the service. The API endpoint handler performs various checks, such as
 - the status of the connections to the infrastructure services used by the service instance
 - the status of the host, e.g. disk space
 - application specific logic 
@@ -91,7 +91,7 @@ The amount deployment strategies is various. Here are most popular of them:
 - A/B testing: Version B is released to a subset of users under specific condition.
 - Shadow: Version B receives real-world traffic alongside version A and doesn’t impact the response.
 
-Here is the description for each one of them: [deployment startegies](https://thenewstack.io/deployment-strategies/).
+Here is the description for each one of them: [deployment strategies](https://thenewstack.io/deployment-strategies/).
 
 # Related reading
 
@@ -106,6 +106,6 @@ Here is the description for each one of them: [deployment startegies](https://th
 
 - Why do we need health checks for applications?
 - What is the difference between Kubernetes probes?
-- What is the best storage for environment variables for your Kubernetes pod? What if this variables are sensitive?
+- What is the best storage for environment variables for your Kubernetes pod? What if these variables are sensitive?
 - Why should we use deployment strategies? What types of deployments strategies do you know?
 - How can you roll back to the previous version of deployment in Kubernetes?

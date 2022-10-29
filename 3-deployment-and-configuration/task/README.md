@@ -27,6 +27,6 @@ In this module you will add a field to one of your services, and perform Rolling
 4. Set app version of app containers to the new one and apply manifest one more time. Make sure that new changes are deployed.
 
 ## Sub-task 4: Deployment history
-As you deployed a new version of your application, you can see the history of your deployments. Your task is to rollback to previous version of your deployment without changing your manifest files.
+As you deployed a new version of your application, you can see the history of your deployments. Your task is to roll back to previous version of your deployment without changing your manifest files.
 Put in comments the solution of this task.
 

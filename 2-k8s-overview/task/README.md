@@ -1,7 +1,7 @@
 # Table of Content
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Install k8s](#sub-task-1-install-k8s)
+- [Sub-task 1: Enable k8s](#sub-task-1-enable-k8s)
 - [Sub-task 2: Deploy containers in k8s](#sub-task-2-deploy-containers-in-k8s)
 
 ## What to do
