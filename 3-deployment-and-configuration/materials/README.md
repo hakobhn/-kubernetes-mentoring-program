@@ -4,7 +4,7 @@
 - [Liveness & Readiness probes in Kubernetes](#liveness--readiness-probes-in-kubernetes)
 - [Secrets and config-maps](#secrets-and-config-maps)
 - [Deployment strategies](#deployment-strategies)
-- [Related strategies](#related-reading)
+- [Related reading](#related-reading)
 - [Questions](#questions)
 
 # Health checks for microservices application

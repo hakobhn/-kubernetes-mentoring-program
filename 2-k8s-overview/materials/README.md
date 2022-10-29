@@ -1,13 +1,21 @@
 # Table of Content
 
 - [Introduction to Kubernetes](#introduction-to-kubernetes)
-- [Pods, Services and networking](#pods-services-and-networking)
+- [Pods, Services and deployments](#pods-services-and-deployments)
 - [Related reading](#related-reading)
 - [Questions](#questions)
 
 # Introduction to Kubernetes
 
 Kubernetes is a portable, extensible, open source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.
+
+It is a container orchestration platform. In order to understand what exactly that means, it helps to revisit the purpose of containers, what's missing, and how Kubernetes fills that gap.
+
+Containers provide a lightweight mechanism for isolating an application's environment. For a given application, we can specify the system configuration and libraries we want installed without worrying about creating conflicts with other applications that might be running on the same physical machine. We encapsulate each application as a container image which can be executed reliably on any machine* (as long as it has the ability to run container images), providing us the portability to enable smooth transitions from development to deployment. Additionally, because each application is self-contained without the concern of environment conflicts, it's easier to place multiple workloads on the same physical machine and achieve higher resource (memory and CPU) utilization - ultimately lowering costs.
+
+However, what happens if your container dies? Or even worse, what happens if the machine running your container fails? Containers do not provide a solution for fault tolerance. Or what if you have multiple containers that need the ability to communicate, how do you enable networking between containers? How does this change as you spin up and down individual containers? Container networking can easily become an entangled mess. Lastly, suppose your production environment consists of multiple machines - how do you decide which machine to use to run your container?
+
+We can address many of the concerns mentioned above using Kubernetes - a container orchestration platform. It manages the entire lifecycle of individual containers, spinning up and shutting down resources as needed. If a container shuts down unexpectedly, the orchestration platform will react by launching another container in its place. On top of this, the orchestration platform provides a mechanism for applications to communicate with each other even as underlying individual containers are created and destroyed.
 
 ## Containers
 
@@ -36,7 +44,7 @@ If you don't specify a tag, Kubernetes assumes you mean the tag `latest`.
 
 When you first create a Deployment, StatefulSet, Pod, or other object that includes a Pod template, then by default the pull policy of all containers in that pod will be set to IfNotPresent if it is not explicitly specified. This policy causes the kubelet to skip pulling an image if it already exists
 
-## Pods, Services and Networking
+## Pods, Services and Deployments
 
 Every Pod in a cluster gets its own unique cluster-wide IP address. This means you do not need to explicitly create links between Pods and you almost never need to deal with mapping container ports to host ports.
 This creates a clean, backwards-compatible model where Pods can be treated much like VMs or physical hosts from the perspectives of port allocation, naming, service discovery, load balancing, application configuration, and migration.
@@ -96,6 +104,7 @@ A Deployment provides declarative updates for Pods and ReplicaSets.
 You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
 
 The following is an example of a Deployment. It creates a ReplicaSet to bring up three nginx Pods:
+
 ![](images/deployment-example.png)
 
 In this example:
