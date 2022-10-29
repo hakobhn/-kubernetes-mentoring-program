@@ -40,7 +40,7 @@
 ### Module 4: Stateful applications
 
 - [Theory](4-statefull-applications/materials/README.md)
-- [Practice](4-statefull-applications/materials/README.md)
+- [Practice](4-statefull-applications/task/README.md)
 
 ### Module 5: Kubernetes networking
 
