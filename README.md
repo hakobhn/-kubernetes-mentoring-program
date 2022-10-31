@@ -11,7 +11,7 @@
 - [Learning Kubernetes](https://www.linkedin.com/learning/learning-kubernetes)
 - [Kubernetes from Zero to Hero](https://www.youtube.com/watch?v=X48VuDVv0do)
 - [Kubernetes Mastery](https://www.udemy.com/course/kubernetesmastery)
-- [Running Kubernetes on AWS(EKS)](https://www.linkedin.com/learning/running-kubernetes-on-aws-eks)
+- [[Extra] Running Kubernetes on AWS(EKS)](https://www.linkedin.com/learning/running-kubernetes-on-aws-eks)
 
 ## Books
 
