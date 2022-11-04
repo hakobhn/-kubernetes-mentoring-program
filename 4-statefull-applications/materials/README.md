@@ -48,6 +48,49 @@ Charts at a higher level have access to all the variables defined beneath. So th
 
 Values are namespaced, but namespaces are pruned. So for the WordPress chart, it can access the MySQL password field as .Values.mysql.password. But for the MySQL chart, the scope of the values has been reduced and the namespace prefix removed, so it will see the password field simply as .Values.password.
 
+## Named templates
+A named template (sometimes called a partial or a subtemplate) is simply a template defined inside a file, and given a name. One popular naming convention is to prefix each defined template with the name of the chart: `{{ define "mychart.labels" }}`. By using the specific chart name as a prefix we can avoid any conflicts that may arise due to two different charts that implement templates of the same name.
+
+The `define` action allows us to create a named template inside a template file. Its syntax goes like this:
+````
+{{- define "MY.NAME" }}
+# body of template here
+{{- end }}
+````
+Now we can embed this template inside our existing ConfigMap, and then include it with the template action:
+````
+{{- define "mychart.labels" }}
+labels:
+generator: helm
+date: {{ now | htmlDate }}
+{{- end }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+name: {{ .Release.Name }}-configmap
+{{- template "mychart.labels" }}
+data:
+myvalue: "Hello World"
+{{- range $key, $val := .Values.favorite }}
+{{ $key }}: {{ $val | quote }}
+{{- end }}
+````
+When the template engine reads this file, it will store away the reference to `mychart.labels` until template `mychart.labels` is called. Then it will render that template inline. So the result will look like this:
+````
+# Source: mychart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: running-panda-configmap
+  labels:
+    generator: helm
+    date: 2016-11-02
+data:
+  myvalue: "Hello World"
+  drink: "coffee"
+  food: "pizza"
+````
+
 # Related reading
 
 - [Kubernetes Persistent Volume Claims explained](https://cloud.netapp.com/blog/cvo-blg-kubernetes-persistent-volume-claims-explained)
