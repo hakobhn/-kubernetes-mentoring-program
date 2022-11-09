@@ -354,7 +354,7 @@ When a new post is created or deleted, `numberOfPosts` for user should be change
 
 
 ## Sub-task 3: Containerization
-1) Install Docker Desktop (if not installed).
+1) Install Docker Desktop. If not installed, follow [the instructions](https://kb.epam.com/display/EPMSAM/Docker+Business+License+in+EPAM) and <span style="color:#ff3300;">skip 'Requesting Docker Business License' paragraph.</span>
 2) Create Dockerfiles to package your applications as docker images. 
 3) Push these local images to your own public registries in  https://hub.docker.com/. Specify version of your container (f.e. 1.0.0).
 4) Create a docker-compose file that would run all containers for your microservice application. Add init scripts for the database to run when container starts up. Once you have a compose file, you can create and start your application containers with a single command: `docker-compose up`.
