@@ -64,7 +64,7 @@ Each HTTP rule contains the following information:
 
 # Related reading
 - [Services, Load Balancing, and Networking](https://kubernetes.io/docs/concepts/services-networking/)
-- [Ingress with Minikube](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html)
+- [Ingress with Minikube] (https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html)
 - [Ingress. Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/ingress)
 - [The imperative way to create an ingress](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-ingress-em-)
 - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)
