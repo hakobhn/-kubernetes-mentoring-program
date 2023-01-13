@@ -35,11 +35,6 @@
 - [Theory](4-statefull-applications/materials/README.md)
 - [Practice](4-statefull-applications/task/README.md)
 
-### Module 5: Kubernetes networking
-
-- [Theory](5-k8s-networking/materials/README.md)
-- [Practice](5-k8s-networking/task/README.md)
-
 ## Books
 
 - [Kubernetes in action](https://www.manning.com/books/kubernetes-in-action)
