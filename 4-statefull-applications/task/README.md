@@ -1,17 +1,15 @@
 # Table of Content
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Persistent volumes](#sub-task-1-persistent-volumes)
+- [Sub-task 1: Stateful Sets](#sub-task-1-stateful-sets)
 - [Sub-task 2: Helm charts](#sub-task-2-helm-chart-default-variables)
 - [Sub-task 3: Helm chart helpers](#sub-task-3-helm-chart-helpers)
 
 ## What to do
-In this module you will learn how to attach persistent storages to your applications. Also, you will understand how helm charts work. 
+In this module you will learn how to attach persistent storages to your applications. Also, you will understand how helm charts work.
 
-## Sub-task 1: Persistent volumes
-In this subtask you will make your database pods use local storage. This will ensure that no database data is lost during pod deploy/redeploy.
-1. Add StorageClass and Local PersistentVolume objects for the Database pods to the manifest files. Persistent volume should reference local directory on your computer.
-2. Add PersistenceVolumeClaim objects to your manifest and reference them from database deployment objects.
+## Sub-task 1: Stateful Sets
+For database resources deployment, use StatefulSet object instead of Deployment.
 
 ## Sub-task 2: Helm chart default variables
 1. Install helm [Official download link](https://helm.sh).

@@ -2,6 +2,7 @@
 
 - [Introduction to Kubernetes](#introduction-to-kubernetes)
 - [Pods, Services and deployments](#pods-services-and-deployments)
+- [Secrets and config-maps](#secrets-and-config-maps)
 - [Related reading](#related-reading)
 - [Questions](#questions)
 
@@ -116,12 +117,35 @@ In this example:
   - The Pod template's specification, or `.template.spec` field, indicates that the Pods run one container, `nginx`, which runs the `nginx` Docker Hub image at version 1.14.2.
   - Create one container and name it `nginx` using the `.spec.template.spec.containers[0].name` field.
 
+# Secrets and Config-maps
+A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume.
+
+A ConfigMap allows you to decouple environment-specific configuration from your container images, so that your applications are easily portable.
+
+Use a ConfigMap for setting configuration data separately from application code.
+
+For example, imagine that you are developing an application that you can run on your own computer (for development) and in the cloud (to handle real traffic). You write the code to look in an environment variable named DATABASE_HOST. Locally, you set that variable to localhost. In the cloud, you set it to refer to a Kubernetes Service that exposes the database component to your cluster. This lets you fetch a container image running in the cloud and debug the exact same code locally if needed.
+
+A ConfigMap is not designed to hold large chunks of data. The data stored in a ConfigMap cannot exceed 1 MiB. If you need to store settings that are larger than this limit, you may want to consider mounting a volume or use a separate database or file service.
+
+Here's an example ConfigMap that has some keys with single values, and other keys where the value looks like a fragment of a configuration format.
+
+![](images/config-map-example.png)
+![](images/pod-using-config-map-example.png)
+
+A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a Pod specification or in a container image. Using a Secret means that you don't need to include confidential data in your application code.
+
+Because Secrets can be created independently of the Pods that use them, there is less risk of the Secret (and its data) being exposed during the workflow of creating, viewing, and editing Pods. Kubernetes, and applications that run in your cluster, can also take additional precautions with Secrets, such as avoiding writing secret data to nonvolatile storage.
+
+Secrets are similar to ConfigMaps but are specifically intended to hold confidential data.
+
 # Related reading
 
 - [Introduction to Kubernetes](https://www.digitalocean.com/community/tutorials/an-introduction-to-kubernetes)
 - [Kubernetes architecture](https://kubernetes.io/docs/concepts/overview/components/)
 - [Kubernetes objects](https://medium.com/devops-mojo/kubernetes-objects-resources-overview-introduction-understanding-kubernetes-objects-24d7b47bb018)
 - [Workload resources](https://kubernetes.io/docs/concepts/workloads/controllers/)
+- [Kubernetes config maps and secrets](https://www.cloudtruth.com/blog/whats-the-difference-between-configmaps-and-secrets)
 
 # Questions
 
