@@ -18,8 +18,12 @@ It is recommended to install Kubernetes Lens to relieve resources management.
 In this subtask you need to create manifest `.yml` files with configuration for deployment. These files should contain the next objects:
 - Namespace (f.e. k8s-program). All other objects will use this namespace;
 - 4 Services (one for each service of your system);
-- 4 Deployments (one for each service of your system). For apps deployments set `replicas: 2`. You should add environment variables for your applications here. <br />
-_Note_: don't forget to specify namespace all objects.
+- 4 Deployments (one for each service of your system). For apps deployments set `replicas: 2`. You should add environment variables for your applications here.
+
+_Note_: don't forget to specify namespace all objects. <br>
+To deploy, run `kubectl apply ./` in folders where yml files are stored.
+To view all objects run `kubectl get all -n=<your_namespace>`. <br>
+Along with services and deployments, this command outputs pods and replica-sets. **Find out why.**
 
 
 ## Sub-task 3: Secrets and config-maps
@@ -27,8 +31,3 @@ _Note_: don't forget to specify namespace all objects.
 2. Add config maps to store environment variables for application deployments.
 3. Add sql scripts to init databases (create tables) to config maps.
 4. Change k8s deployment objects to load these secrets and config-maps.
-
-To deploy, run `kubectl apply ./` in folders where yml files are stored.
-To view all objects run `kubectl get all -n=<your_namespace>`.
-
-Along with services asn deployments, this command outputs pods and replica-sets. **Find out why.**
