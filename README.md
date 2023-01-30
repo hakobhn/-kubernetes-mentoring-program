@@ -4,6 +4,9 @@
 
 - [Learn](https://learn.epam.com)
 - [Documentation](https://kubernetes.io/docs/home)
+- [Kubernetes API](https://kubernetes.io/docs/reference/kubernetes-api/) - here you can find full description of any resource.
+- [Kubernetes API v1.26 - one page](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/) - same as above, but all information is on one page.
+- [Kubectl CLI reference](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
 
 ## Lectures
 
@@ -11,6 +14,7 @@
 - [Learning Kubernetes](https://www.linkedin.com/learning/learning-kubernetes)
 - [Kubernetes from Zero to Hero](https://www.youtube.com/watch?v=X48VuDVv0do)
 - [Kubernetes Mastery](https://www.udemy.com/course/kubernetesmastery)
+- [Kubernetes with practice by Mumshad Mannambeth](https://www.udemy.com/course/certified-kubernetes-application-developer/) - includes practice to pass CKAD certification.
 - [[Extra] Running Kubernetes on AWS(EKS)](https://www.linkedin.com/learning/running-kubernetes-on-aws-eks)
 
 ## Modules
@@ -41,3 +45,11 @@
 - [The Kubernetes Book](https://www.amazon.com/Kubernetes-Book-Nigel-Poulton/dp/1521823634)
 - [Kubernetes for Developers](https://www.amazon.com/Kubernetes-Developers-William-Denniss/dp/1617297178)
 - [Certified Kubernetes Application Developer (CKAD) Study Guide](https://www.amazon.com/Certified-Kubernetes-Application-Developer-Depth/dp/1492083739)
+
+## Certification
+
+- [Official page of CKAD certification](https://trainingportal.linuxfoundation.org/courses/certified-kubernetes-application-developer-ckad)
+- [Official instructions](https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad)
+- [Example exam questions](https://codeburst.io/kubernetes-ckad-weekly-challenges-overview-and-tips-7282b36a2681)
+- [Exercises](https://github.com/dgkanatsios/CKAD-exercises)
+- [Simulator](https://killer.sh/)
