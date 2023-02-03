@@ -11,7 +11,7 @@ In this module you will manage secrets and properties for your k8s objects and s
 
 ## Sub-task 1: Persistent volumes
 In this subtask you will make your database pods use local storage. This will ensure that no database data is lost during pod deploy/redeploy.
-1. Add StorageClass and Local PersistentVolume objects for the Database pods to the manifest files. Persistent volume should reference local directory on your computer.
+1. Add StorageClass and Local PersistentVolume objects for the Database pods to the manifest files. Persistent volume should reference local directory of kubernetes cluster on your computer.
 2. Add PersistenceVolumeClaim objects to your manifest and reference them from database deployment objects.
 
 ## Sub-task 2: Liveness and Readiness probes
