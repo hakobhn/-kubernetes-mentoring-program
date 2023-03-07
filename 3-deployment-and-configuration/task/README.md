@@ -16,7 +16,7 @@ In this subtask you will make your database pods use local storage. This will en
 
 ## Sub-task 2: Liveness and Readiness probes
 1. Add endpoints for health checks at your applications.
-2. Add liveness and readiness probes for your deployment objects at k8s manifest (don't forget about database deployments).
+2. Add startup, liveness and readiness probes for your deployment objects at k8s manifest (don't forget about database deployments).
 
 ## Sub-task 3: Deployment strategies
 In this module you will add a field to one of your services, and perform Rolling-update deployment.

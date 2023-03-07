@@ -21,6 +21,7 @@ In this subtask you need to create manifest `.yml` files with configuration for 
 - 4 Deployments (one for each service of your system). For apps deployments set `replicas: 2`. You should add environment variables for your applications here.
 
 _Note_: don't forget to specify namespace all objects. <br>
+Delete EXPOSE instruction from dockerfiles and upgrade images. <br>
 To deploy, run `kubectl apply ./` in folders where yml files are stored.
 To view all objects run `kubectl get all -n=<your_namespace>`. <br>
 Along with services and deployments, this command outputs pods and replica-sets. **Find out why.**

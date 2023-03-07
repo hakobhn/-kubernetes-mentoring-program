@@ -75,6 +75,9 @@ Any code greater than or equal to 200 and less than 400 indicates success. Any o
 ## Readiness probe
 Sometimes, applications are temporarily unable to serve traffic. For example, an application might need to load large data or configuration files during startup, or depend on external services after startup. In such cases, you don't want to kill the application, but you don't want to send it requests either. Kubernetes provides readiness probes to detect and mitigate these situations. A pod with containers reporting that they are not ready does not receive traffic through Kubernetes Services.
 
+## Startup probe
+Sometimes, applications need additional startup time on their first initialization. Liveness and readiness probes start working after startup probe has succeeded.
+
 ## Configure probes
 Probes have a number of fields that you can use to more precisely control the behavior of startup, liveness and readiness checks:
 - initialDelaySeconds: Number of seconds after the container has started before startup, liveness or readiness probes are initiated. Defaults to 0 seconds. Minimum value is 0.
