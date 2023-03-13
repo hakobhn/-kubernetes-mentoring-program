@@ -23,21 +23,25 @@
 
 - [Theory](1-microservices-architecture-and-docker/materials/README.md)
 - [Practice](1-microservices-architecture-and-docker/task/README.md)
+- [Quiz](1-microservices-architecture-and-docker/quiz/README.md)
 
 ### Module 2: Kubernetes overview
 
 - [Theory](2-k8s-overview/materials/README.md)
 - [Practice](2-k8s-overview/task/README.md)
+- [Quiz](2-k8s-overview/quiz/README.md)
 
 ### Module 3: Deployment and configuration
 
 - [Theory](3-deployment-and-configuration/materials/README.md)
 - [Practice](3-deployment-and-configuration/task/README.md)
+- [Quiz](3-deployment-and-configuration/quiz/README.md)
 
 ### Module 4: Stateful applications
 
 - [Theory](4-statefull-applications/materials/README.md)
 - [Practice](4-statefull-applications/task/README.md)
+- [Quiz](4-statefull-applications/quiz/README.md)
 
 ## Books
 
