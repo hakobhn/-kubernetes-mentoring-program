@@ -3,7 +3,8 @@
 - [What to do](#what-to-do)
 - [Sub-task 1: Enable k8s](#sub-task-1-enable-k8s)
 - [Sub-task 2: Deploy containers in k8s](#sub-task-2-deploy-containers-in-k8s)
-- [Sub-task 3: Secrets and config-maps](#sub-task-3-secrets-and-config-maps)
+- [Sub-task 3: Persistent volumes](#sub-task-1-persistent-volumes)
+- [Sub-task 4: Stateful Sets](#sub-task-1-stateful-sets)
 
 ## What to do
 In this module you will create infrastructure for your k8s cluster and deploy your microservices applications there.
@@ -26,9 +27,10 @@ To deploy, run `kubectl apply ./` in folders where yml files are stored.
 To view all objects run `kubectl get all -n=<your_namespace>`. <br>
 Along with services and deployments, this command outputs pods and replica-sets. **Find out why.**
 
+## Sub-task 3: Persistent volumes
+In this subtask you will make your database pods use local storage. This will ensure that no database data is lost during pod deploy/redeploy.
+1. Add StorageClass and Local PersistentVolume objects for the Database pods to the manifest files. Persistent volume should reference local directory of kubernetes cluster on your computer.
+2. Add PersistenceVolumeClaim objects to your manifest and reference them from database deployment objects.
 
-## Sub-task 3: Secrets and config-maps
-1. Add Secrets object to your k8s manifest to store database username and password.
-2. Add config maps to store environment variables for application deployments.
-3. Add sql scripts to init databases (create tables) to config maps.
-4. Change k8s deployment objects to load these secrets and config-maps.
+## Sub-task 4: Stateful Sets
+For database resources deployment, use StatefulSet object instead of Deployment.

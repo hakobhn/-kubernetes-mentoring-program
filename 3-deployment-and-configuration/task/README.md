@@ -1,7 +1,7 @@
 # Table of Content
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Persistent volumes](#sub-task-1-persistent-volumes)
+- [Sub-task 1: Secrets and config-maps](#sub-task-3-secrets-and-config-maps)
 - [Sub-task 2: Liveness and Readiness probes](#sub-task-2-liveness-and-readiness-probes)
 - [Sub-task 3: Deployment strategies](#sub-task-3-deployment-strategies)
 - [Sub-task 4: Deployment history](#sub-task-4-deployment-history)
@@ -9,10 +9,11 @@
 ## What to do
 In this module you will manage secrets and properties for your k8s objects and study deployment strategies.
 
-## Sub-task 1: Persistent volumes
-In this subtask you will make your database pods use local storage. This will ensure that no database data is lost during pod deploy/redeploy.
-1. Add StorageClass and Local PersistentVolume objects for the Database pods to the manifest files. Persistent volume should reference local directory of kubernetes cluster on your computer.
-2. Add PersistenceVolumeClaim objects to your manifest and reference them from database deployment objects.
+## Sub-task 1: Secrets and config-maps
+1. Add Secrets object to your k8s manifest to store database username and password.
+2. Add config maps to store environment variables for application deployments.
+3. Add sql scripts to init databases (create tables) to config maps.
+4. Change k8s deployment objects to load these secrets and config-maps.
 
 ## Sub-task 2: Liveness and Readiness probes
 1. Add endpoints for health checks at your applications.
