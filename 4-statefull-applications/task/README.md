@@ -1,8 +1,8 @@
 # Table of Content
 
 - [What to do](#what-to-do)
-- [Sub-task 1: Helm charts](#sub-task-2-helm-chart-default-variables)
-- [Sub-task 2: Helm chart helpers](#sub-task-3-helm-chart-helpers)
+- [Sub-task 1: Helm charts](#sub-task-1--helm-chart-default-variables)
+- [Sub-task 2: Helm chart helpers](#sub-task-2--helm-chart-helpers)
 
 ## What to do
 In this module you will learn how to attach persistent storages to your applications. Also, you will understand how helm charts work.
