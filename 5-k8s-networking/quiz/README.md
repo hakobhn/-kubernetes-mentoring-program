@@ -42,7 +42,7 @@
 3) It specifies the domain name to be used for the Ingress
 4) It specifies the endpoint to be used for the Ingress
 
-## 8. Which command is used to create an Ingress resource in Kubernetes?
+## 8. Which commands can be used to create an Ingress resource in Kubernetes?
 1) kubectl create ingress ...
 2) kubectl apply -f ingress.yaml
 3) kubectl create -f ingress.yaml
