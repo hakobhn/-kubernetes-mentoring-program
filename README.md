@@ -39,9 +39,15 @@
 
 ### Module 4: Stateful applications
 
-- [Theory](4-statefull-applications/materials/README.md)
-- [Practice](4-statefull-applications/task/README.md)
-- [Quiz](4-statefull-applications/quiz/README.md)
+- [Theory](4-helm-overview/materials/README.md)
+- [Practice](4-helm-overview/task/README.md)
+- [Quiz](4-helm-overview/quiz/README.md)
+
+### Module 5: Networking
+
+- [Theory](5-k8s-networking/materials/README.md)
+- [Practice](5-k8s-networking/task/README.md)
+- [Quiz](5-k8s-networking/quiz/README.md)
 
 ## Books
 

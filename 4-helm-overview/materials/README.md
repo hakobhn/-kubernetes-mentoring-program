@@ -72,7 +72,4 @@ data:
 
 # Questions
 
-- Why do we need persistent volumes for applications?
-- What objects are used to configure Kubernetes storage?
-- What is te difference between Kubernetes volume types? (hostPath, local, iscsi, nfs)
 - Why should we use helm charts?

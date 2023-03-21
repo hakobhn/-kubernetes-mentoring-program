@@ -60,8 +60,6 @@ Each HTTP rule contains the following information:
 - A list of paths (for example, /testpath), each of which has an associated backend defined with a service.name and a service.port.name or service.port.number. Both the host and path must match the content of an incoming request before the load balancer directs traffic to the referenced Service.
 - A backend is a combination of Service and port names as described in the Service doc or a custom resource backend by way of a CRD. HTTP (and HTTPS) requests to the Ingress that matches the host and path of the rule are sent to the listed backend.
 
-
-
 # Related reading
 - [Services, Load Balancing, and Networking](https://kubernetes.io/docs/concepts/services-networking/)
 - [Ingress with Minikube](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html)
@@ -69,7 +67,6 @@ Each HTTP rule contains the following information:
 - [The imperative way to create an ingress](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-ingress-em-)
 - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)
 - [Example from NGINX documentation](https://kubernetes.github.io/ingress-nginx/examples/rewrite/)
-
 
 # Related video
 

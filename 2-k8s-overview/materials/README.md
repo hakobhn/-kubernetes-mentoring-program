@@ -81,12 +81,12 @@ Pods in a Kubernetes cluster are used in two main ways:
 Pods are designed to support multiple cooperating processes (as containers) that form a cohesive unit of service. The containers in a Pod are automatically co-located and co-scheduled on the same physical or virtual machine in the cluster. The containers can share resources and dependencies, communicate with one another, and coordinate when and how they are terminated.
 
 For example, you might have a container that acts as a web server for files in a shared volume, and a separate "sidecar" container that updates those files from a remote source, as in the following diagram:
-![](images/multi-container-pod.png)
 
+![](images/multi-container-pod.png)
 
 ### Using Services
 
-Kubernetes Pods are created and destroyed to match the desired state of your cluster. Pods are nonpermanent resources. If you use a Deployment to run your app, it can create and destroy Pods dynamically.
+Kubernetes Pods are created and destroyed to match the desired state of your cluster. Pods are non-permanent resources. If you use a Deployment to run your app, it can create and destroy Pods dynamically.
 
 Each Pod gets its own IP address, however in a Deployment, the set of Pods running in one moment in time could be different from the set of Pods running that application a moment later.
 
@@ -97,6 +97,7 @@ Enter Services.
 A Service in Kubernetes is a REST object, similar to a Pod. Like all the REST objects, you can POST a Service definition to the API server to create a new instance. The name of a Service object must be a valid RFC 1035 label name.
 
 For example, suppose you have a set of Pods where each listens on TCP port 9376 and contains a label app.kubernetes.io/name=MyApp:
+
 ![](images/service-example.png)
 
 ### Using Deployments
@@ -177,4 +178,7 @@ In the above, stable is synonymous with persistence across Pod (re)scheduling. I
 - What is architecture of kubernetes?
 - What are the advantages of Kubernetes?
 - What are the disadvantages of Kubernetes?
-- Imagine you need to create a scalable microservices system. Describe which Kubernetes objects you will use?
+- Imagine you need to create a scalable microservice system. Describe which Kubernetes objects you will use?
+- Why do we need persistent volumes for applications?
+- What objects are used to configure Kubernetes storage?
+- What is te difference between Kubernetes volume types? (hostPath, local, iscsi, nfs)

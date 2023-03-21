@@ -17,8 +17,8 @@ It is recommended to install Kubernetes Lens to relieve resources management.
 ## Sub-task 2: Deploy containers in k8s
 In this subtask you need to create manifest `.yml` files with configuration for deployment. These files should contain the next objects:
 - Namespace (f.e. k8s-program). All other objects will use this namespace;
-- 4 Services (one for each service of your system). Use NodePort service type and configure nodePort field for testing.
-- 4 Deployments (one for each service of your system). For apps deployments set `replicas: 2`. You should add environment variables for your applications here.
+- 2 Services (one for each service of your system). Use NodePort service type and configure nodePort field for testing.
+- 2 Deployments (one for each service of your system). For apps deployments set `replicas: 2`. You should add environment variables for your applications here.
 
 _Note_: don't forget to specify namespace all objects. <br>
 Delete EXPOSE instruction from dockerfiles and upgrade images. <br>
@@ -33,5 +33,8 @@ In this subtask you will make your app pods use local storage. This will ensure 
 3. Test PersistentVolume: create any file inside the container in the volume directory, scale down deployment or delete pod, let replicaset automatically create pod, ensure that file still exists.
 
 ## Sub-task 4: Stateful Sets
-Use StatefulSet object (not Deployment) to create databases. 
-Configure default storage class "hostpath" for volume claim templates, so allowing k8s to provision storage with default provisioner (PersistentVolume will be created automatically).
+1. Use StatefulSet object (not Deployment) to create databases. 
+2. Configure default storage class "hostpath" for volume claim templates, so allowing k8s to provision storage with default provisioner (PersistentVolume will be created automatically).
+3. Create 2 Services (one for each StatefulSet of your system). Use ClusterIP service type to restrict external access.
+
+_Note_: You can also use `kubectl port-forward pod-name 5433:5432` (local machine port:container port) console command to temporarily open access to the database pod <br>

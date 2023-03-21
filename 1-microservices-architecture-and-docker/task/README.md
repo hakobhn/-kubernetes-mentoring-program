@@ -382,10 +382,8 @@ And add interaction between them.
     </tr>
 </table>
 
-
 ## Sub-task 2: Service interaction
 When a new post is created or deleted, `numberOfPosts` for user should be changed. You should implement a call from post service to user service.
-
 
 ## Sub-task 3: Containerization
 1) Install Docker Desktop. If not installed, follow [the instructions](https://kb.epam.com/display/EPMSAM/Docker+Business+License+in+EPAM) and <span style="color:#ff3300;">skip 'Requesting Docker Business License' paragraph.</span>

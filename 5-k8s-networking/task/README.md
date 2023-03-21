@@ -1,5 +1,12 @@
-Create an Ingress controller. Ingress must have a rule that forwards all requests from /epamapp/{student_name}/* (student_name is your name)
+# Table of Content
 
-Host should be k8s.homework.user-service and  k8s.homework.post-service (2 hosts for java services)
+- [What to do](#what-to-do)
+- [Sub-task 1: Ingress](#sub-task-1--ingress)
 
-Example: GET  http://k8s.homework.user-service/epamapp/arkadiy_dobkin/users/{id} should return user’s data
+## What to do
+In this module you will learn how to install ingress controller and route traffic to your applications. Also, you will practice helm.
+
+## Sub-task 1: Ingress
+1. Install ingress controller using helm chart. ([guide](https://kube-workshop.benco.io/08-helm-ingress/))
+2. Create ingress resource and route your traffic using rules. 
+3. Configure rewrite-target of path using annotations. Example routing: from `http://localhost/posts/api/v1/greeting` to `http://posts:8080/api/v1/greeting`. ([ref docs](https://kubernetes.github.io/ingress-nginx/examples/rewrite/#rewrite-target))

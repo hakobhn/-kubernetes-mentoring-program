@@ -21,6 +21,7 @@ A ConfigMap is not designed to hold large chunks of data. The data stored in a C
 Here's an example ConfigMap that has some keys with single values, and other keys where the value looks like a fragment of a configuration format.
 
 ![](images/config-map-example.png)
+
 ![](images/pod-using-config-map-example.png)
 
 A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a Pod specification or in a container image. Using a Secret means that you don't need to include confidential data in your application code.
@@ -92,7 +93,7 @@ The amount deployment strategies is various. Here are most popular of them:
 - Blue/Green: Version B is released alongside version A, then the traffic is switched to version B.
 - Canary: Version B is released to a subset of users, then proceed to a full rollout.
 - A/B testing: Version B is released to a subset of users under specific condition.
-- Shadow: Version B receives real-world traffic alongside version A and doesn’t impact the response.
+- Shadow: Version B receives real-world traffic alongside version A doesn’t impact the response.
 
 Here is the description for each one of them: [deployment strategies](https://thenewstack.io/deployment-strategies/).
 
