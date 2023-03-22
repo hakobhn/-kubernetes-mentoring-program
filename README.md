@@ -37,7 +37,7 @@
 - [Practice](3-deployment-and-configuration/task/README.md)
 - [Quiz](3-deployment-and-configuration/quiz/README.md)
 
-### Module 4: Stateful applications
+### Module 4: Helm overview
 
 - [Theory](4-helm-overview/materials/README.md)
 - [Practice](4-helm-overview/task/README.md)
