@@ -2,7 +2,7 @@
 
 ## Links
 
-- [Learn](https://learn.epam.com)
+- [Learn](https://learn.epam.com/detailsPage?id=550944b4-72c9-4c2d-93ef-545b6e569f61&source=PROGRAM)
 - [Documentation](https://kubernetes.io/docs/home)
 - [Kubernetes API](https://kubernetes.io/docs/reference/kubernetes-api/) - here you can find full description of any resource.
 - [Kubernetes API v1.26 - one page](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/) - same as above, but all information is on one page.
