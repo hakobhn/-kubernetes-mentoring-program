@@ -8,6 +8,6 @@ import javax.validation.constraints.Size;
 @Data
 public class UserInput {
     @NotBlank(message = "${user.username.required}")
-    @Size(max = 10, min = 3, message = "${user.username.invalid}")
+    @Size(max = 50, min = 3, message = "${user.username.invalid}")
     private String username;
 }

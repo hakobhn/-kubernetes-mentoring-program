@@ -2,31 +2,33 @@ package com.epam.training.kubernetes.dockerdemo.user.domain.model;
 
 
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
 @Data
 @Entity
 @Table(name = "users")
+@org.hibernate.annotations.Entity(
+        dynamicUpdate = true
+)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, updatable = false)
-    @CreatedDate
+    @CreationTimestamp
+    @Column(updatable = false)
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(nullable = false)
-    @LastModifiedDate
+    @UpdateTimestamp
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime updatedAt = LocalDateTime.now();
 
@@ -34,4 +36,14 @@ public class User {
     private String username;
 
     private int numberOfPosts;
+
+    @PrePersist
+    public void onInsert() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }
