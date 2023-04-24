@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users;
+-- Init database for postgres
 
 CREATE TABLE IF NOT EXISTS users
 (

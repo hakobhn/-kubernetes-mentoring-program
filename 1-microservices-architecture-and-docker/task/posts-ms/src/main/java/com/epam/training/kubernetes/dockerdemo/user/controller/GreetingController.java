@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.epam.training.kubernetes.dockerdemo.user.controller.ControllerEndpoints.GREETING_URL;
+
 @Slf4j
 @RestController
-@RequestMapping("/greeting")
+@RequestMapping(GREETING_URL)
 @RequiredArgsConstructor
 public class GreetingController {
 

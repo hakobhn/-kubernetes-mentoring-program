@@ -51,7 +51,7 @@ public class PostService {
                         post -> {
                             authorService.decrementAuthorPostsCount(post.getAuthorId());
                             postRepository.deleteById(post.getId());
-                            return null;
+                            return post;
                         }
                 ).orElseThrow(() -> new NotFoundException("No post with id "+ id +" found."));
     }

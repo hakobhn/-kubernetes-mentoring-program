@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import static com.epam.training.kubernetes.dockerdemo.user.controller.ControllerEndpoints.USERS_URL;
+
 @Service
 @RequiredArgsConstructor
 public class AuthorService {
@@ -16,12 +18,12 @@ public class AuthorService {
 
     public void incrementAuthorPostsCount(Long userId) {
         restTemplate
-                .getForEntity(usersMsBaseUri + "/users/" + userId + "/posts-count-increment", Void.class);
+                .getForEntity(usersMsBaseUri + USERS_URL + "/" + userId + "/posts-count-increment", Void.class);
     }
 
     public void decrementAuthorPostsCount(Long userId) {
         restTemplate
-                .getForEntity(usersMsBaseUri + "/users/" + userId + "posts-count-decrement", Void.class);
+                .getForEntity(usersMsBaseUri + USERS_URL + "/" + userId + "/posts-count-decrement", Void.class);
     }
 
 }

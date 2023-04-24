@@ -4,8 +4,6 @@ import com.epam.training.kubernetes.dockerdemo.user.domain.repository.UserReposi
 import com.epam.training.kubernetes.dockerdemo.user.dto.UserDto;
 import com.epam.training.kubernetes.dockerdemo.user.dto.UserInput;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -18,6 +16,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static com.epam.training.kubernetes.dockerdemo.user.controller.ControllerEndpoints.USERS_URL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TEST_METHOD;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -27,14 +26,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @SqlGroup({
         @Sql(value = "classpath:data/schema-users.sql", executionPhase = BEFORE_TEST_METHOD),
         @Sql(value = "classpath:data/data-users.sql", executionPhase = BEFORE_TEST_METHOD)
 })
 class UserControllerTest {
-
-    private final static String USERS_URL = "/users";
 
     @Autowired
     private MockMvc mockMvc;
@@ -48,9 +44,6 @@ class UserControllerTest {
     @Test
     void shouldAddNewUser() throws Exception {
         // given
-        RequestBuilder request = MockMvcRequestBuilders
-                .get(USERS_URL);
-
         UserInput userInput = new UserInput();
         userInput.setUsername("testUser");
 
@@ -74,9 +67,6 @@ class UserControllerTest {
     @Test
     void shouldFailToAddInvalidUser() throws Exception {
         // given
-        RequestBuilder request = MockMvcRequestBuilders
-                .get(USERS_URL);
-
         UserInput userInput = new UserInput();
         userInput.setUsername("te");
 
