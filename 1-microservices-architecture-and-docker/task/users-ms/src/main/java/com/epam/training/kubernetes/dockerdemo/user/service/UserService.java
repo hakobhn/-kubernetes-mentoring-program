@@ -40,7 +40,7 @@ public class UserService {
                             userRepository.save(user);
                             return userMapper.userToUserDto(user);
                         }
-                ).orElseThrow(() -> new NotFoundException("No user with id "+ id +" found."));
+                ).orElseThrow(() -> new NotFoundException("No user with id "+ id +" exists."));
     }
 
     public UserDto updatePostCount(Long id, int count) {
@@ -51,7 +51,7 @@ public class UserService {
                             userRepository.save(user);
                             return userMapper.userToUserDto(user);
                         }
-                ).orElseThrow(() -> new NotFoundException("No user with id "+ id +" found."));
+                ).orElseThrow(() -> new NotFoundException("No user with id "+ id +" exists."));
     }
 
     public void delete(Long id) {
@@ -59,9 +59,9 @@ public class UserService {
                 .map(
                         user -> {
                             userRepository.deleteById(user.getId());
-                            return null;
+                            return user;
                         }
-                ).orElseThrow(() -> new NotFoundException("No post with id "+ id +" found."));
+                ).orElseThrow(() -> new NotFoundException("No user with id "+ id +" exists."));
     }
 
 }

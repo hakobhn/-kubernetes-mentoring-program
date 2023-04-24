@@ -42,7 +42,7 @@ public class PostService {
                             postRepository.save(post);
                             return postMapper.postToPostDto(post);
                         }
-                ).orElseThrow(() -> new NotFoundException("No post with id "+ id +" found."));
+                ).orElseThrow(() -> new NotFoundException("No post with id "+ id +" exists."));
     }
 
     public void delete(String id) {
@@ -53,7 +53,7 @@ public class PostService {
                             postRepository.deleteById(post.getId());
                             return post;
                         }
-                ).orElseThrow(() -> new NotFoundException("No post with id "+ id +" found."));
+                ).orElseThrow(() -> new NotFoundException("No post with id "+ id +" exists."));
     }
 
 }

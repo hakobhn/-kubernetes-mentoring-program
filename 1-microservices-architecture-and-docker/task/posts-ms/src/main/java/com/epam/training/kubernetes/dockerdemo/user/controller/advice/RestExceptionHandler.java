@@ -6,6 +6,7 @@ import com.epam.training.kubernetes.dockerdemo.user.exception.BadRequestExceptio
 import com.epam.training.kubernetes.dockerdemo.user.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.http.conn.HttpHostConnectException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.Map;
@@ -45,6 +47,17 @@ public class RestExceptionHandler {
     @ExceptionHandler({BadRequestException.class})
     public ResponseEntity<?> handleBadRequest(Exception ex, WebRequest request) {
         return new ResponseEntity(ex.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({HttpClientErrorException.class})
+    public ResponseEntity<?> handleRemoteServiceExceptions(Exception ex, WebRequest request) {
+        HttpStatus status = HttpStatus.valueOf(((HttpClientErrorException)ex).getRawStatusCode());
+        return new ResponseEntity(ex.getLocalizedMessage(), status);
+    }
+
+    @ExceptionHandler({HttpHostConnectException.class})
+    public ResponseEntity<?> handleRemoteServiceNotAvailable(Exception ex, WebRequest request) {
+        return new ResponseEntity(ex.getLocalizedMessage(), HttpStatus.SERVICE_UNAVAILABLE);
     }
 
     @ExceptionHandler({NotFoundException.class})

@@ -7,7 +7,6 @@ import com.epam.training.kubernetes.dockerdemo.user.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 
+import java.sql.SQLException;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -48,7 +48,7 @@ public class RestExceptionHandler {
         return new ResponseEntity(ex.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler({DuplicateKeyException.class})
+    @ExceptionHandler({SQLException.class})
     public ResponseEntity<?> handleDuplicateKey(Exception ex, WebRequest request) {
         return new ResponseEntity(messageProvider.getMessage("user.username.already_exists"),
                 HttpStatus.BAD_REQUEST);

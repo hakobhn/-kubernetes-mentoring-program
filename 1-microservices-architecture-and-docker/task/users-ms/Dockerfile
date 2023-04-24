@@ -1,5 +1,4 @@
 # Login to docker hub: docker login -u hakobhn
-# Login to hub: docker login -u hakobhn -p PiramidaNanoelq1980
 # Build the image: docker build -t hakobhn/dockerdemo-users:1.0.0 .
 # Push image to docker hub: docker push hakobhn/dockerdemo-users:1.0.0
 

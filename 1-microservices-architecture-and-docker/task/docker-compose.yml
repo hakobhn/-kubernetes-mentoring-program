@@ -9,7 +9,7 @@ services:
   users-ms:
     image: hakobhn/dockerdemo-users:1.0.0
     container_name: users-ms
-    restart: on-failure
+    restart: always
     ports:
       - "8080:8080"
     environment:
@@ -20,10 +20,9 @@ services:
       - postgres
 
   posts-ms:
-    build:
-      context: hakobhn/dockerdemo-posts:1.0.0
+    image: hakobhn/dockerdemo-posts:1.0.0
     container_name: posts-ms
-    restart: on-failure
+    restart: always
     ports:
       - "8081:8081"
     environment:
@@ -66,7 +65,7 @@ services:
     image: portainer/portainer
     # pass: superpassword
     command: [ "--admin-password=$$2y$$05$$w5wsvlEDXxPjh2GGfkoe9.At0zj8r7DeafAkXXeubs0JnmxLjyw/a", "-H",  "unix:///var/run/docker.sock" ]
-    restart: always
+    restart: on-failure
     ports:
       - '9000:9000'
       - '8000:8000'
