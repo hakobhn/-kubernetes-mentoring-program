@@ -1,8 +1,8 @@
--- Init database for postgres
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE IF NOT EXISTS users
 (
-    id serial not null primary key,
+    id bigint NOT NULL AUTO_INCREMENT,
     username character varying(255) NOT NULL,
     number_of_posts integer NOT NULL,
     created_at timestamp without time zone,

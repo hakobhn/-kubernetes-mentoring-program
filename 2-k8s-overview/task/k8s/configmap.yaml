@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: k8s-program
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: dockerdemo
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  PGDATA: ../data/postgres
