@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "fe02390f-f0f6-4b6e-b28c-352b4e5b10ba",
+		"name": "k8s",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "130836"
+	},
+	"item": [
+		{
+			"name": "Add new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"hakobhn-k8s\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/v1/users",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/v1/users/{{userId}}",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"hakobhn-10u\",\r\n    \"amountOfPosts\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/v1/users/{{userId}}",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/v1/users/{{userId}}",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check greetings for users ms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/v1/greeting",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"greeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Increment user posts count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/v1/users/{{userId}}/posts-count-increment",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"{{userId}}",
+						"posts-count-increment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decrement user posts count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/v1/users/{{userId}}/posts-count-decrement",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"users",
+						"{{userId}}",
+						"posts-count-decrement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check greetings for posts ms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{POSTS_HOST_NAME}}/v1/greeting",
+					"host": [
+						"{{POSTS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"greeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"authorId\": 1,\r\n    \"text\": \"Hello Kubernetes world!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{POSTS_HOST_NAME}}/v1/posts",
+					"host": [
+						"{{POSTS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{POSTS_HOST_NAME}}/v1/posts/{{postId}}",
+					"host": [
+						"{{POSTS_HOST_NAME}}"
+					],
+					"path": [
+						"v1",
+						"posts",
+						"{{postId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{USERS_HOST_NAME}}/actuator/health/liveness",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/actuator/health/liveness",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"actuator",
+						"health",
+						"liveness"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{USERS_HOST_NAME}}/actuator/health/readiness",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{USERS_HOST_NAME}}/actuator/health/readiness",
+					"host": [
+						"{{USERS_HOST_NAME}}"
+					],
+					"path": [
+						"actuator",
+						"health",
+						"readiness"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{POSTS_HOST_NAME}}/actuator/health/liveness",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{POSTS_HOST_NAME}}/actuator/health/liveness",
+					"host": [
+						"{{POSTS_HOST_NAME}}"
+					],
+					"path": [
+						"actuator",
+						"health",
+						"liveness"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{POSTS_HOST_NAME}}/actuator/metrics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{POSTS_HOST_NAME}}/actuator/metrics",
+					"host": [
+						"{{POSTS_HOST_NAME}}"
+					],
+					"path": [
+						"actuator",
+						"metrics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{POSTS_HOST_NAME}}/actuator/health/readiness",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{POSTS_HOST_NAME}}/actuator/health/readiness",
+					"host": [
+						"{{POSTS_HOST_NAME}}"
+					],
+					"path": [
+						"actuator",
+						"health",
+						"readiness"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

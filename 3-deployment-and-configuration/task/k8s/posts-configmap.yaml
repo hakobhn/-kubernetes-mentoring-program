@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: posts-config
+  namespace: k8s-program
+  labels:
+    app: posts-ms
+data:
+  SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/dockerdemo
+  USERS_MS_BASE_URI: http://users-ms:8080
