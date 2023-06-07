@@ -14,8 +14,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.client.HttpClientErrorException;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -44,20 +45,26 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler({BadRequestException.class})
-    public ResponseEntity<?> handleBadRequest(Exception ex, WebRequest request) {
-        log.error("BadRequest exception caught. ContextPath {}", request.getContextPath(), ex);
+    public ResponseEntity<?> handleBadRequest(Exception ex, HttpServletRequest request) {
+        log.error("BadRequest exception caught. URL {}", request.getRequestURL(), ex);
         return new ResponseEntity(ex.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler({NotFoundException.class})
-    public ResponseEntity<?> handleNotFound(Exception ex, WebRequest request) {
-        log.warn("NotFound exception caught. ContextPath {}", request.getContextPath(), ex);
+    public ResponseEntity<?> handleNotFound(Exception ex, HttpServletRequest request) {
+        log.warn("NotFound exception caught. URL {}", request.getRequestURL(), ex);
         return new ResponseEntity(ex.getLocalizedMessage(), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler({HttpClientErrorException.class})
+    public ResponseEntity<?> handleRemoteServiceErrors(HttpClientErrorException ex, HttpServletRequest request) {
+        log.warn("Remote service returns error. URL {}", request.getRequestURL(), ex);
+        return new ResponseEntity(ex.getLocalizedMessage(), ex.getStatusCode());
+    }
+
     @ExceptionHandler({HttpHostConnectException.class, InternalException.class})
-    public ResponseEntity<?> handleInternalError(Exception ex, WebRequest request) {
-        log.error("Internal exception caught. ContextPath {}", request.getContextPath(), ex);
+    public ResponseEntity<?> handleInternalError(Exception ex, HttpServletRequest request) {
+        log.error("Internal exception caught. URL {}", request.getRequestURL(), ex);
         return new ResponseEntity("Oops, internal error. Working on it. Try again later.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

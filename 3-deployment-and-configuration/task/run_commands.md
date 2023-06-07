@@ -5,6 +5,12 @@ minikube start --driver=docker
 
 minikube tunnel
 
+# Cluster info
+kubectl cluster-info
+
+# show the dashboard
+minikube dashboard
+
 ## Deploying the app into minikube
 kubectl apply -f .\k8s
 
@@ -35,3 +41,6 @@ kubectl rollout undo deployment/posts-depl --namespace=k8s-program
 
 ## For emptying the cluster
 kubectl delete all --all --namespace=k8s-program
+
+## Delete minikube with cached images
+minikube delete

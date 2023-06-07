@@ -7,10 +7,12 @@ import com.epam.training.kubernetes.dockerdemo.user.dto.UserInput;
 import com.epam.training.kubernetes.dockerdemo.user.exception.NotFoundException;
 import com.epam.training.kubernetes.dockerdemo.user.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+@Slf4j
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -47,8 +49,12 @@ public class UserService {
         return userRepository.findById(id)
                 .map(
                         user -> {
-                            user.setNumberOfPosts(user.getNumberOfPosts() + count);
-                            userRepository.save(user);
+                            if (user.getNumberOfPosts() + count >= 0) {
+                                user.setNumberOfPosts(user.getNumberOfPosts() + count);
+                                userRepository.save(user);
+                            } else {
+                                log.warn("There was attempt to decrease post counts lower than 0. User: {}", user.getId());
+                            }
                             return userMapper.userToUserDto(user);
                         }
                 ).orElseThrow(() -> new NotFoundException("No user with id "+ id +" exists."));
