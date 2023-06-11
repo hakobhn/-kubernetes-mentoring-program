@@ -17,9 +17,7 @@ kubectl apply -f .\k8s
 ## For checking # For emptying the cluster
 kubectl get deployments --namespace=k8s-program
 
-## For checking # For emptying the cluster
-kubectl get deployments --namespace=k8s-program
-
+## Expose services to the outside of cluster
 kubectl expose deployment users-depl --namespace=k8s-program --type=LoadBalancer --port=8080
 kubectl expose deployment posts-depl --namespace=k8s-program --type=LoadBalancer --port=8081
 
