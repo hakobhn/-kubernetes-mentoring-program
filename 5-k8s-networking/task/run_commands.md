@@ -36,13 +36,9 @@ helm repo update demo-ingress
 ## Installing ingress controller
 helm install demo-ingress ingress-nginx/ingress-nginx --namespace k8s-program
 
-## Helm Upgrade
+## Helm Upgrade, no need to uninstall and install each time
 helm upgrade users-ms ./users-ms --namespace=k8s-program
 helm upgrade posts-ms ./posts-ms --namespace=k8s-program
-
-## Helm Rollback
-helm rollback users-ms 1 --namespace=k8s-program
-helm rollback posts-ms 1 --namespace=k8s-program
 
 ## Helm Package
 helm package ./users-ms
@@ -62,10 +58,6 @@ helm uninstall demo-ingress --namespace=k8s-program
 
 ## For checking # For emptying the cluster
 kubectl get deployments --namespace=k8s-program
-
-## Expose services to the outside of cluster
-kubectl expose deployment users-ms --namespace=k8s-program --type=NodePort --port=8080
-kubectl expose deployment posts-ms --namespace=k8s-program --type=NodePort --port=8081
 
 ## All exposed ports
 kubectl describe service --namespace=k8s-program
