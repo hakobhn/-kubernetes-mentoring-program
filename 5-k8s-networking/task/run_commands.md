@@ -13,26 +13,28 @@ minikube dashboard
 
 # cd to ./helm
 
-## Creating a Chart
-helm create users-ms
-helm create posts-ms
-
-## Helm Lint
-helm lint ./users-ms
-helm lint ./posts-ms
-
-## Helm Template
-helm template ./users-ms
-helm template ./posts-ms
-
 ## Helm Get
 helm ls --all --namespace=k8s-program
 
+## Delete old cluster data if exists
+helm uninstall users-ms --namespace=k8s-program
+helm uninstall posts-ms --namespace=k8s-program
+kubectl delete all --all --namespace=k8s-program
+kubectl delete pvc --all --namespace=k8s-program
+kubectl delete configmap --all --namespace=k8s-program
+kubectl delete secret --all --namespace=k8s-program
+helm uninstall demo-ingress --namespace k8s-program
 
 ## Helm Install
 helm install users-ms ./users-ms --namespace=k8s-program
 helm install posts-ms ./posts-ms --namespace=k8s-program
 
+## Add ingress repo
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update demo-ingress
+
+## Installing ingress controller
+helm install demo-ingress ingress-nginx/ingress-nginx --namespace k8s-program
 
 ## Helm Upgrade
 helm upgrade users-ms ./users-ms --namespace=k8s-program
@@ -46,17 +48,17 @@ helm rollback posts-ms 1 --namespace=k8s-program
 helm package ./users-ms
 helm package ./posts-ms
 
-## Helm Repo, Link: https://www.opcito.com/blogs/creating-helm-repository-using-github-pages
-helm repo index users-ms --url=https://github.com/hakobhn/helm-charts.git
-helm repo index posts-ms --url=https://github.com/hakobhn/helm-charts.git
-helm repo update
+## Helm repo list
 helm repo list
-helm repo add users-ms https://hakobhn.github.io/helm-charts/
-helm repo add posts-ms https://hakobhn.github.io/helm-charts/
+
+## Helm list
+kubectl get svc,pods --namespace=k8s-program
+helm ls
 
 ## Helm uninstall
 helm uninstall users-ms --namespace=k8s-program
 helm uninstall posts-ms --namespace=k8s-program
+helm uninstall demo-ingress --namespace=k8s-program
 
 ## For checking # For emptying the cluster
 kubectl get deployments --namespace=k8s-program
@@ -71,14 +73,8 @@ kubectl describe service --namespace=k8s-program
 ## For emptying the cluster
 kubectl delete all --all --namespace=k8s-program
 
-
-## Delete cluster data
-helm uninstall users-ms --namespace=k8s-program
-helm uninstall posts-ms --namespace=k8s-program
-kubectl delete all --all --namespace=k8s-program
+## Remove persistent volumes
 kubectl delete pvc --all --namespace=k8s-program
-kubectl delete configmap --all --namespace=k8s-program
-kubectl delete secret --all --namespace=k8s-program
 
 ## Remove configmaps
 kubectl delete configmap --all --namespace=k8s-program

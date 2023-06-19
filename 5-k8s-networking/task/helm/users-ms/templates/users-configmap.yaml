@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: users-config
+  namespace: k8s-program
+  labels:
+    app: users-ms
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/dockerdemo
+  SPRING_DATASOURCE_USERNAME: postgres
